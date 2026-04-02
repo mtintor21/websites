@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kod Starog Mosta | Restoran Sisak</title>
-  <meta name="description" content="Restoran Kod Starog Mosta u Sisku – tradicija domaće kuhinje, specijaliteti s ražnja i elegantan ambijent za obiteljske ručkove, večere i posebne prilike." />
+  <title>Kod Starog Mosta | Restoran u Sisku</title>
+  <meta
+    name="description"
+    content="Kod Starog Mosta u Sisku – restoran ugodnog ambijenta, domaćih okusa i specijaliteta. Rezervirajte svoj stol jednostavno i brzo."
+  />
   <style>
     :root{
-      --bg:#111111;
-      --bg-soft:#1a1a1a;
-      --card:#1f1f1f;
-      --gold:#d6b26e;
-      --gold-dark:#b8934f;
-      --text:#f5f1e8;
-      --muted:#c9c1b2;
-      --line:rgba(214,178,110,0.18);
+      --bg:#0f0f10;
+      --bg-soft:#17181a;
+      --card:#1d1f22;
+      --card-2:#23262b;
+      --gold:#d8b46a;
+      --gold-dark:#bb9450;
+      --text:#f5f0e6;
+      --muted:#cbc2b2;
+      --line:rgba(216,180,106,0.18);
       --white:#ffffff;
+      --success:#dff5df;
+      --shadow:0 18px 45px rgba(0,0,0,0.28);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1150px;
     }
 
     *{
@@ -30,36 +39,43 @@
 
     body{
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0e0e0e 0%, #161616 100%);
+      background:
+        radial-gradient(circle at top right, rgba(216,180,106,0.08), transparent 25%),
+        linear-gradient(180deg, #0d0d0e 0%, #151618 100%);
       color:var(--text);
       line-height:1.6;
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
     }
 
     .container{
-      width:min(1120px, 92%);
+      width:min(var(--max), 92%);
       margin:0 auto;
     }
 
     .topbar{
       position:sticky;
       top:0;
-      z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(17,17,17,0.88);
+      z-index:100;
+      background:rgba(15,15,16,0.88);
+      backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
     }
 
     .nav{
+      min-height:74px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:20px;
-      min-height:72px;
     }
 
     .brand{
@@ -68,21 +84,22 @@
       gap:2px;
     }
 
-    .brand .small{
+    .brand small{
       color:var(--gold);
-      font-size:12px;
       text-transform:uppercase;
       letter-spacing:2px;
+      font-size:12px;
     }
 
-    .brand .name{
-      font-size:22px;
+    .brand strong{
+      font-size:24px;
       font-weight:700;
     }
 
     .nav-links{
       display:flex;
-      gap:20px;
+      align-items:center;
+      gap:22px;
       flex-wrap:wrap;
       color:var(--muted);
       font-size:15px;
@@ -92,24 +109,53 @@
       color:var(--gold);
     }
 
+    .nav-cta{
+      padding:11px 16px;
+      border-radius:999px;
+      background:var(--gold);
+      color:#111;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .nav-cta:hover{
+      background:var(--gold-dark);
+    }
+
     .hero{
-      min-height:88vh;
-      display:flex;
-      align-items:center;
       position:relative;
       overflow:hidden;
+      padding:86px 0 54px;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.72)),
-        radial-gradient(circle at top right, rgba(214,178,110,0.15), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(214,178,110,0.12), transparent 25%);
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
+        linear-gradient(135deg, #3a2a18 0%, #171718 45%, #101112 100%);
+      z-index:-2;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      right:-180px;
+      top:-140px;
+      background:radial-gradient(circle, rgba(216,180,106,0.18), transparent 65%);
+      z-index:-1;
+      filter:blur(8px);
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap:36px;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:34px;
       align-items:center;
-      padding:72px 0;
     }
 
     .eyebrow{
@@ -123,14 +169,15 @@
 
     h1{
       font-size:clamp(38px, 7vw, 72px);
-      line-height:1.05;
+      line-height:1.04;
       margin-bottom:18px;
+      max-width:760px;
     }
 
-    .hero p{
+    .hero p.lead{
       color:var(--muted);
       font-size:18px;
-      max-width:680px;
+      max-width:700px;
       margin-bottom:28px;
     }
 
@@ -138,18 +185,18 @@
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:26px;
+      margin-bottom:24px;
     }
 
     .btn{
+      min-height:54px;
+      padding:0 22px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:52px;
-      padding:0 20px;
       border-radius:999px;
       font-weight:700;
-      transition:0.25s ease;
+      transition:.25s ease;
       border:1px solid transparent;
     }
 
@@ -166,7 +213,7 @@
     .btn-secondary{
       border-color:var(--line);
       color:var(--text);
-      background:rgba(255,255,255,0.02);
+      background:rgba(255,255,255,0.03);
     }
 
     .btn-secondary:hover{
@@ -174,83 +221,113 @@
       color:var(--gold);
     }
 
-    .hero-info{
+    .hero-badges{
       display:flex;
       flex-wrap:wrap;
-      gap:18px;
+      gap:12px;
+    }
+
+    .badge{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.03);
       color:var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
       font-size:14px;
     }
 
     .hero-card{
-      background:linear-gradient(180deg, rgba(214,178,110,0.12), rgba(255,255,255,0.02));
+      background:linear-gradient(180deg, rgba(216,180,106,0.12), rgba(255,255,255,0.03));
       border:1px solid var(--line);
-      border-radius:26px;
-      padding:28px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.28);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:var(--shadow);
     }
 
-    .hero-card h3{
+    .hero-card .label{
       color:var(--gold);
-      font-size:14px;
-      letter-spacing:2px;
       text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:12px;
       margin-bottom:12px;
     }
 
-    .hero-card .big{
+    .hero-card h3{
       font-size:28px;
-      font-weight:700;
-      margin-bottom:10px;
+      line-height:1.2;
+      margin-bottom:12px;
     }
 
     .hero-card p{
-      margin:0;
-      font-size:15px;
       color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .quick-info{
+      display:grid;
+      gap:12px;
+    }
+
+    .quick-item{
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px 16px;
+    }
+
+    .quick-item strong{
+      display:block;
+      color:var(--gold);
+      margin-bottom:3px;
+      font-size:14px;
     }
 
     section{
-      padding:82px 0;
+      padding:84px 0;
     }
 
-    .section-title{
-      font-size:clamp(28px, 5vw, 44px);
-      margin-bottom:14px;
-    }
-
-    .section-subtitle{
-      color:var(--muted);
-      max-width:760px;
+    .section-head{
       margin-bottom:34px;
+    }
+
+    .section-head h2{
+      font-size:clamp(28px, 5vw, 44px);
+      margin-bottom:12px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:780px;
       font-size:17px;
     }
 
-    .about-grid,
-    .contact-grid{
+    .grid-2{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:26px;
+      gap:24px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
     }
 
     .card{
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:24px;
+      border-radius:var(--radius);
       padding:28px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.16);
     }
 
     .card h3{
-      color:var(--gold);
+      font-size:23px;
       margin-bottom:12px;
-      font-size:21px;
     }
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:20px;
-      margin-top:10px;
+    .card p{
+      color:var(--muted);
     }
 
     .feature{
@@ -260,22 +337,22 @@
       padding:24px;
     }
 
-    .feature .icon{
-      width:48px;
-      height:48px;
-      border-radius:14px;
+    .feature-icon{
+      width:50px;
+      height:50px;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(214,178,110,0.12);
+      border-radius:14px;
+      background:rgba(216,180,106,0.12);
       color:var(--gold);
       font-size:22px;
       margin-bottom:14px;
     }
 
     .feature h4{
+      font-size:20px;
       margin-bottom:10px;
-      font-size:19px;
     }
 
     .feature p{
@@ -290,26 +367,81 @@
     }
 
     .gallery-item{
-      min-height:240px;
-      border-radius:22px;
+      min-height:250px;
+      border-radius:24px;
       border:1px solid var(--line);
       overflow:hidden;
       position:relative;
       background:
-        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.45)),
-        linear-gradient(135deg, #2a241d 0%, #4a3421 45%, #1b1b1b 100%);
+        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.48)),
+        linear-gradient(135deg, #51402a 0%, #2d2218 40%, #17181a 100%);
       display:flex;
       align-items:flex-end;
       padding:22px;
     }
 
-    .gallery-item span{
-      font-size:19px;
+    .gallery-item strong{
+      font-size:21px;
+      max-width:230px;
+      line-height:1.25;
+    }
+
+    .menu-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .menu-list{
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+
+    .menu-list li{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding-bottom:12px;
+      border-bottom:1px dashed rgba(255,255,255,0.08);
+      color:var(--muted);
+    }
+
+    .menu-list li strong{
+      color:var(--text);
       font-weight:700;
     }
 
-    .cta{
-      background:linear-gradient(135deg, rgba(214,178,110,0.13), rgba(255,255,255,0.02));
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+    }
+
+    .review{
+      background:var(--card-2);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .stars{
+      color:var(--gold);
+      margin-bottom:12px;
+      letter-spacing:2px;
+    }
+
+    .review p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .review strong{
+      font-size:15px;
+    }
+
+    .cta-band{
+      background:linear-gradient(135deg, rgba(216,180,106,0.14), rgba(255,255,255,0.03));
       border:1px solid var(--line);
       border-radius:28px;
       padding:34px;
@@ -320,57 +452,62 @@
       flex-wrap:wrap;
     }
 
-    .cta h3{
-      font-size:30px;
+    .cta-band h3{
+      font-size:31px;
       margin-bottom:8px;
     }
 
-    .cta p{
+    .cta-band p{
       color:var(--muted);
-      max-width:680px;
+      max-width:700px;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:24px;
     }
 
     .contact-list{
       display:grid;
       gap:14px;
-      margin-top:8px;
+      margin-top:12px;
     }
 
     .contact-item{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,0.02);
+      background:rgba(255,255,255,0.03);
       border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
     }
 
     .contact-item strong{
       display:block;
-      margin-bottom:4px;
       color:var(--gold);
-    }
-
-    .hours{
-      list-style:none;
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-      color:var(--muted);
-    }
-
-    .hours li{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding-bottom:10px;
-      border-bottom:1px dashed rgba(255,255,255,0.08);
-    }
-
-    .footer{
-      padding:28px 0 46px;
-      color:#aa9f8c;
+      margin-bottom:4px;
       font-size:14px;
+    }
+
+    .note{
+      margin-top:18px;
+      font-size:14px;
+      color:#b9af9d;
+    }
+
+    .map-box iframe{
+      width:100%;
+      height:100%;
+      min-height:380px;
+      border:0;
+      border-radius:24px;
+      filter:grayscale(0.08);
+    }
+
+    footer{
+      padding:26px 0 96px;
       border-top:1px solid var(--line);
-      margin-top:20px;
+      color:#b6aa96;
+      font-size:14px;
     }
 
     .footer-wrap{
@@ -380,27 +517,104 @@
       flex-wrap:wrap;
     }
 
-    @media (max-width: 900px){
+    .mobile-bar{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:120;
+      display:none;
+      background:rgba(12,12,13,0.96);
+      backdrop-filter:blur(10px);
+      border-top:1px solid var(--line);
+      padding:10px;
+    }
+
+    .mobile-bar-inner{
+      width:min(var(--max), 96%);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .mobile-btn{
+      min-height:50px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      padding:0 14px;
+      text-align:center;
+      font-size:14px;
+    }
+
+    .mobile-btn.primary{
+      background:var(--gold);
+      color:#111;
+    }
+
+    .mobile-btn.secondary{
+      border:1px solid var(--line);
+      color:var(--text);
+      background:rgba(255,255,255,0.03);
+    }
+
+    @media (max-width: 980px){
       .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .features,
-      .gallery{
+      .grid-2,
+      .grid-3,
+      .gallery,
+      .menu-box,
+      .reviews,
+      .contact-wrap{
         grid-template-columns:1fr;
       }
 
       .nav{
-        padding:10px 0;
         align-items:flex-start;
         flex-direction:column;
+        padding:12px 0;
       }
 
       .nav-links{
         gap:14px;
       }
 
+      .mobile-bar{
+        display:block;
+      }
+    }
+
+    @media (max-width: 640px){
       .hero{
-        min-height:auto;
+        padding-top:64px;
+      }
+
+      h1{
+        font-size:42px;
+      }
+
+      .hero p.lead{
+        font-size:17px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      footer{
+        padding-bottom:92px;
       }
     }
   </style>
@@ -410,72 +624,104 @@
   <div class="topbar">
     <div class="container nav">
       <div class="brand">
-        <span class="small">Restoran Sisak</span>
-        <span class="name">Kod Starog Mosta</span>
+        <small>Restoran Sisak</small>
+        <strong>Kod Starog Mosta</strong>
       </div>
 
-      <div class="nav-links">
-        <a href="#onama">O nama</a>
+      <nav class="nav-links">
+        <a href="#o-nama">O nama</a>
         <a href="#ponuda">Ponuda</a>
-        <a href="#ambijent">Ambijent</a>
+        <a href="#iskustvo">Doživljaj</a>
+        <a href="#recenzije">Recenzije</a>
         <a href="#kontakt">Kontakt</a>
-      </div>
+        <a class="nav-cta" href="tel:+38544625076">Nazovi odmah</a>
+      </nav>
     </div>
   </div>
 
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Dobra hrana • Ugodan ambijent • Sisak</span>
-        <h1>Mjesto gdje se tradicija susreće s modernim ambijentom.</h1>
-        <p>
-          Dobrodošli u restoran Kod Starog Mosta – mjesto za opušten ručak, obiteljsku večeru,
-          druženje s prijateljima i uživanje u domaćim okusima u elegantnom prostoru.
+        <span class="eyebrow">Domaći okusi • Ugodan ambijent • Sisak</span>
+        <h1>Rezervirajte stol u restoranu Kod Starog Mosta</h1>
+        <p class="lead">
+          Uživajte u spoju tradicije, toplih domaćih okusa i elegantnog ambijenta.
+          Idealno mjesto za obiteljski ručak, večeru, druženje i posebne prilike.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="tel:+38544625076">Nazovite nas</a>
-          <a class="btn btn-secondary" href="#kontakt">Rezervacije i kontakt</a>
+          <a class="btn btn-primary" href="tel:+38544625076">📞 Nazovi i rezerviraj</a>
+          <a class="btn btn-secondary" href="#kontakt">Pošalji upit</a>
+          <a class="btn btn-secondary" href="#kako-do-nas">Kako do nas</a>
         </div>
 
-        <div class="hero-info">
-          <span>📍 Ruđera Boškovića 2, Sisak</span>
-          <span>📞 +385 (0)44 625 076</span>
-          <span>🍽️ Restoran i specijaliteti</span>
+        <div class="hero-badges">
+          <span class="badge">Rezervacije telefonom</span>
+          <span class="badge">Topla atmosfera</span>
+          <span class="badge">Tradicionalni specijaliteti</span>
         </div>
       </div>
 
       <div class="hero-card">
-        <h3>Kod Starog Mosta</h3>
-        <div class="big">Topla atmosfera, domaći okusi i elegantan dojam.</div>
+        <div class="label">Za goste koji žele više</div>
+        <h3>Mjesto na koje se dolazi zbog hrane, a vraća zbog doživljaja.</h3>
         <p>
-          Idealno mjesto za goste koji žele kvalitetnu hranu, ugodan ambijent i iskustvo kojem se vraćaju.
+          Restoran Kod Starog Mosta predstavljen je kao mjesto gdje se tradicija pripreme mesa na ražnju
+          susreće sa suvremenim elegantnim ambijentom. Ovaj demo upravo to naglašava i pretvara u jasan poziv na rezervaciju. :contentReference[oaicite:1]{index=1}
         </p>
+
+        <div class="quick-info">
+          <div class="quick-item">
+            <strong>Telefon</strong>
+            <a href="tel:+38544625076">+385 (0)44 625 076</a>
+          </div>
+
+          <div class="quick-item">
+            <strong>Grad</strong>
+            Sisak
+          </div>
+
+          <div class="quick-item">
+            <strong>Rezervacije</strong>
+            Brzo i jednostavno pozivom
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="onama">
+  <section id="o-nama">
     <div class="container">
-      <h2 class="section-title">O nama</h2>
-      <p class="section-subtitle">
-        Kod Starog Mosta njeguje duh domaće kuhinje i ugostiteljstva, uz prostor koji ostavlja moderan i profinjen dojam.
-        Restoran je odličan izbor za svakodnevni obrok, opušteno druženje ili posebne trenutke u ugodnoj atmosferi.
-      </p>
+      <div class="section-head">
+        <h2>Zašto gosti biraju Kod Starog Mosta</h2>
+        <p>
+          Dobra restoranska stranica ne treba biti komplicirana — treba jasno pokazati atmosferu,
+          olakšati kontakt i potaknuti gosta da rezervira stol. Ova verzija upravo to radi.
+        </p>
+      </div>
 
-      <div class="about-grid">
-        <div class="card">
-          <h3>Domaća tradicija</h3>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="feature-icon">🍖</div>
+          <h4>Prepoznatljivi okusi</h4>
           <p>
-            U fokusu su okusi koje gosti vole – jela pripremljena s pažnjom, poznate namirnice i pristup koji stavlja
-            kvalitetu i zadovoljstvo gosta na prvo mjesto.
+            Fokus na domaćim okusima i specijalitetima koji stvaraju osjećaj povjerenja i vraćaju goste ponovno.
           </p>
         </div>
 
-        <div class="card">
-          <h3>Moderan ambijent</h3>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h4>Ambijent za svaku priliku</h4>
           <p>
-            Elegantno uređen prostor pruža ugodnu atmosferu za ručak, večeru, obiteljsko okupljanje ili neformalni poslovni susret.
+            Ručak s obitelji, večera u dvoje ili druženje s ekipom — prostor ostavlja topao i elegantan dojam.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📞</div>
+          <h4>Jednostavna rezervacija</h4>
+          <p>
+            Posjetitelj odmah vidi broj telefona i može nazvati jednim klikom, što povećava šansu za rezervaciju.
           </p>
         </div>
       </div>
@@ -484,61 +730,108 @@
 
   <section id="ponuda">
     <div class="container">
-      <h2 class="section-title">Zašto odabrati nas</h2>
-      <p class="section-subtitle">
-        Restoran je osmišljen za goste koji traže kombinaciju dobre hrane, ugodne usluge i mjesta na koje se rado vraćaju.
-      </p>
+      <div class="section-head">
+        <h2>Predstavljanje ponude</h2>
+        <p>
+          Ovdje sam ubacio demo strukturu koja izgleda kao pravi restoran web. Kasnije se može zamijeniti stvarnim jelima,
+          dnevnom ponudom ili menijem bez mijenjanja cijelog dizajna.
+        </p>
+      </div>
 
-      <div class="features">
-        <div class="feature">
-          <div class="icon">🍖</div>
-          <h4>Specijaliteti i domaći okusi</h4>
-          <p>
-            Ponuda inspirirana tradicijom, uz naglasak na jela koja okupljaju obitelj i društvo za stolom.
-          </p>
+      <div class="menu-box">
+        <div class="card">
+          <h3>Što istaknuti na naslovnici</h3>
+          <ul class="menu-list">
+            <li><strong>Specijaliteti kuće</strong><span>Najtraženija jela</span></li>
+            <li><strong>Obiteljski ručkovi</strong><span>Topla atmosfera</span></li>
+            <li><strong>Večere i druženja</strong><span>Ugodan ambijent</span></li>
+            <li><strong>Rezervacije</strong><span>Brz kontakt telefonom</span></li>
+          </ul>
         </div>
 
-        <div class="feature">
-          <div class="icon">✨</div>
-          <h4>Ugodan i elegantan prostor</h4>
-          <p>
-            Ambijent u kojem se osjećate opušteno, bilo da dolazite na brzi ručak ili večernje druženje.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="icon">📍</div>
-          <h4>Odlična lokacija u Sisku</h4>
-          <p>
-            Jednostavno nas je pronaći, a naš prostor nudi idealno mjesto za predah i uživanje u dobroj hrani.
-          </p>
+        <div class="card">
+          <h3>Što web treba postići</h3>
+          <ul class="menu-list">
+            <li><strong>Više poziva</strong><span>Jasan CTA na vrhu</span></li>
+            <li><strong>Više povjerenja</strong><span>Moderan izgled</span></li>
+            <li><strong>Lakše pronalaženje</strong><span>Mapa i kontakt</span></li>
+            <li><strong>Bolji prvi dojam</strong><span>Web koji izgleda ozbiljno</span></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="ambijent">
+  <section id="iskustvo">
     <div class="container">
-      <h2 class="section-title">Ambijent i doživljaj</h2>
-      <p class="section-subtitle">
-        Ovdje možeš kasnije dodati prave fotografije restorana, jela i prostora. Za demo sam ostavio elegantne blokove koji dobro izgledaju i bez slika.
-      </p>
+      <div class="section-head">
+        <h2>Doživljaj restorana</h2>
+        <p>
+          Ovi vizualni blokovi služe kao premium placeholderi dok se ne ubace stvarne fotografije interijera, hrane i atmosfere.
+        </p>
+      </div>
 
       <div class="gallery">
-        <div class="gallery-item"><span>Topla atmosfera restorana</span></div>
-        <div class="gallery-item"><span>Jela koja okupljaju za stolom</span></div>
-        <div class="gallery-item"><span>Mjesto za ručak, večeru i druženje</span></div>
+        <div class="gallery-item">
+          <strong>Ambijent za opušten ručak i večeru</strong>
+        </div>
+
+        <div class="gallery-item">
+          <strong>Mjesto gdje se spajaju tradicija i elegancija</strong>
+        </div>
+
+        <div class="gallery-item">
+          <strong>Doživljaj kojem se gosti žele vratiti</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recenzije">
+    <div class="container">
+      <div class="section-head">
+        <h2>Što bi gosti željeli vidjeti</h2>
+        <p>
+          Recenzije jako dižu povjerenje. Ispod su demo primjeri izgleda sekcije; kasnije se mogu zamijeniti stvarnim komentarima s Google profila.
+        </p>
+      </div>
+
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Ugodan ambijent, fina hrana i mjesto na koje se rado vraćamo.”
+          </p>
+          <strong>Gost restorana</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Odličan izbor za obiteljski ručak i druženje vikendom.”
+          </p>
+          <strong>Gost restorana</strong>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Vrlo lijep dojam, jednostavna rezervacija i ugodna atmosfera.”
+          </p>
+          <strong>Gost restorana</strong>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <div class="cta">
+      <div class="cta-band">
         <div>
-          <h3>Rezervirajte svoj stol</h3>
+          <h3>Rezervirajte svoj stol danas</h3>
           <p>
-            Za informacije, upite i rezervacije nazovite nas i osigurajte svoje mjesto na vrijeme.
+            Jasna i moderna web stranica pomaže gostu da se odluči brže. Zato je fokus ove verzije na kontaktu,
+            rezervaciji i povjerenju već u prvih nekoliko sekundi.
           </p>
         </div>
         <a class="btn btn-primary" href="tel:+38544625076">Nazovi odmah</a>
@@ -548,56 +841,65 @@
 
   <section id="kontakt">
     <div class="container">
-      <h2 class="section-title">Kontakt</h2>
-      <p class="section-subtitle">
-        Javite nam se za rezervacije, dodatne informacije ili dogovor oko dolaska.
-      </p>
+      <div class="section-head">
+        <h2>Kontakt i rezervacije</h2>
+        <p>
+          Što je kontakt jednostavniji, veća je vjerojatnost da će posjetitelj stvarno rezervirati stol.
+        </p>
+      </div>
 
-      <div class="contact-grid">
+      <div class="contact-wrap">
         <div class="card">
-          <h3>Informacije</h3>
+          <h3>Javite nam se</h3>
 
           <div class="contact-list">
             <div class="contact-item">
-              <strong>Telefon</strong>
+              <strong>Telefon za rezervacije</strong>
               <a href="tel:+38544625076">+385 (0)44 625 076</a>
             </div>
 
             <div class="contact-item">
-              <strong>Adresa</strong>
-              Ruđera Boškovića 2, Sisak
+              <strong>Lokacija</strong>
+              Sisak
             </div>
 
             <div class="contact-item">
               <strong>Radno vrijeme</strong>
-              Po dogovoru / upitu<br>
-              <small style="color:#b7ad9d;">* Ovdje se kasnije može upisati točno radno vrijeme.</small>
+              Po dogovoru / upitu
             </div>
           </div>
+
+          <p class="note">
+            Napomena: ovu demo verziju sam ostavio bez tvrdnje o točnoj adresi i radnom vremenu ako ih restoran još nije jasno objavio na vlastitoj stranici.
+            Sigurno potvrđen javni kontakt koji sam koristio je telefonski broj s turističke stranice grada. :contentReference[oaicite:2]{index=2}
+          </p>
         </div>
 
-        <div class="card">
-          <h3>Kratka poruka za goste</h3>
-          <p>
-            Bilo da dolazite na ručak, večeru ili posebno druženje, u restoranu Kod Starog Mosta očekuje vas ugodna atmosfera i okus kojem se rado vraćate.
-          </p>
-
-          <ul class="hours">
-            <li><span>Rezervacije</span><span>Telefonski</span></li>
-            <li><span>Lokacija</span><span>Sisak</span></li>
-            <li><span>Ambijent</span><span>Topao i elegantan</span></li>
-          </ul>
+        <div class="map-box" id="kako-do-nas">
+          <iframe
+            src="https://www.google.com/maps?q=Sisak%20Kod%20Starog%20Mosta&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokacija restorana Kod Starog Mosta u Sisku">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer>
     <div class="container footer-wrap">
-      <span>© <span id="year"></span> Kod Starog Mosta, Sisak</span>
-      <span>Demo web stranica</span>
+      <span>© <span id="year"></span> Kod Starog Mosta</span>
+      <span>Demo web stranica izrađena za prezentaciju restorana</span>
     </div>
   </footer>
+
+  <div class="mobile-bar">
+    <div class="mobile-bar-inner">
+      <a class="mobile-btn primary" href="tel:+38544625076">📞 Nazovi</a>
+      <a class="mobile-btn secondary" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
