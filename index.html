@@ -3,25 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NAZIV_RESTORANA | Restoran u gradu GRAD</title>
+  <title>NAZIV_RESTORANA | Premium restoran u gradu GRAD</title>
   <meta
     name="description"
-    content="NAZIV_RESTORANA u gradu GRAD – ugodan ambijent, domaći okusi i jednostavne rezervacije. Nazovite i rezervirajte svoj stol."
+    content="NAZIV_RESTORANA u gradu GRAD – premium restoran, ugodan ambijent, vrhunski doživljaj i jednostavne rezervacije."
   />
   <style>
     :root{
-      --bg:#0f0f10;
-      --bg-soft:#17181a;
-      --card:#1d1f22;
-      --card-2:#23262b;
-      --gold:#d8b46a;
-      --gold-dark:#bb9450;
-      --text:#f5f0e6;
-      --muted:#cbc2b2;
-      --line:rgba(216,180,106,0.18);
-      --shadow:0 18px 45px rgba(0,0,0,0.28);
-      --radius:24px;
-      --max:1150px;
+      --bg:#0b0b0d;
+      --bg-soft:#131417;
+      --card:#181a1f;
+      --card-2:#1f2228;
+      --gold:#d7b46a;
+      --gold-dark:#b78f49;
+      --text:#f4efe5;
+      --muted:#c8c0b2;
+      --line:rgba(215,180,106,0.18);
+      --shadow:0 22px 55px rgba(0,0,0,0.35);
+      --radius-xl:30px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --max:1180px;
     }
 
     *{
@@ -36,10 +38,11 @@
 
     body{
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(216,180,106,0.08), transparent 25%),
-        linear-gradient(180deg, #0d0d0e 0%, #151618 100%);
       color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(215,180,106,0.10), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(215,180,106,0.06), transparent 18%),
+        linear-gradient(180deg, #09090a 0%, #111214 100%);
       line-height:1.6;
     }
 
@@ -57,13 +60,13 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(15,15,16,0.88);
-      backdrop-filter:blur(10px);
+      background:rgba(10,10,11,0.86);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
     }
 
     .nav{
-      min-height:74px;
+      min-height:76px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -78,13 +81,13 @@
 
     .brand small{
       color:var(--gold);
-      text-transform:uppercase;
       letter-spacing:2px;
+      text-transform:uppercase;
       font-size:12px;
     }
 
     .brand strong{
-      font-size:24px;
+      font-size:25px;
       font-weight:700;
     }
 
@@ -102,7 +105,10 @@
     }
 
     .nav-cta{
-      padding:11px 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 18px;
       border-radius:999px;
       background:var(--gold);
       color:#111;
@@ -117,7 +123,9 @@
     .hero{
       position:relative;
       overflow:hidden;
-      padding:86px 0 54px;
+      min-height:92vh;
+      display:flex;
+      align-items:center;
     }
 
     .hero::before{
@@ -125,52 +133,53 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
-        linear-gradient(135deg, #3a2a18 0%, #171718 45%, #101112 100%);
+        linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.78)),
+        linear-gradient(135deg, #3d2b17 0%, #16171a 42%, #0c0c0e 100%);
       z-index:-2;
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      width:560px;
-      height:560px;
-      border-radius:50%;
+      width:620px;
+      height:620px;
       right:-180px;
-      top:-140px;
-      background:radial-gradient(circle, rgba(216,180,106,0.18), transparent 65%);
+      top:-180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(215,180,106,0.18), transparent 65%);
       z-index:-1;
-      filter:blur(8px);
+      filter:blur(10px);
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:34px;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:36px;
       align-items:center;
+      padding:80px 0 60px;
     }
 
     .eyebrow{
       display:inline-block;
+      margin-bottom:16px;
       color:var(--gold);
+      font-size:13px;
       letter-spacing:2px;
       text-transform:uppercase;
-      font-size:13px;
-      margin-bottom:16px;
     }
 
     h1{
-      font-size:clamp(38px, 7vw, 72px);
-      line-height:1.04;
-      margin-bottom:18px;
+      font-size:clamp(40px, 7vw, 76px);
+      line-height:1.02;
       max-width:760px;
+      margin-bottom:18px;
     }
 
-    .hero p.lead{
+    .lead{
+      max-width:690px;
       color:var(--muted);
-      font-size:18px;
-      max-width:700px;
-      margin-bottom:28px;
+      font-size:19px;
+      margin-bottom:30px;
     }
 
     .hero-actions{
@@ -183,10 +192,10 @@
     .btn{
       min-height:54px;
       padding:0 22px;
+      border-radius:999px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      border-radius:999px;
       font-weight:700;
       transition:.25s ease;
       border:1px solid transparent;
@@ -203,9 +212,9 @@
     }
 
     .btn-secondary{
+      background:rgba(255,255,255,0.03);
       border-color:var(--line);
       color:var(--text);
-      background:rgba(255,255,255,0.03);
     }
 
     .btn-secondary:hover{
@@ -220,18 +229,18 @@
     }
 
     .badge{
+      padding:10px 14px;
+      border-radius:999px;
       border:1px solid var(--line);
       background:rgba(255,255,255,0.03);
       color:var(--muted);
-      padding:10px 14px;
-      border-radius:999px;
       font-size:14px;
     }
 
     .hero-card{
-      background:linear-gradient(180deg, rgba(216,180,106,0.12), rgba(255,255,255,0.03));
+      background:linear-gradient(180deg, rgba(215,180,106,0.14), rgba(255,255,255,0.03));
       border:1px solid var(--line);
-      border-radius:30px;
+      border-radius:var(--radius-xl);
       padding:30px;
       box-shadow:var(--shadow);
     }
@@ -245,8 +254,8 @@
     }
 
     .hero-card h3{
-      font-size:28px;
-      line-height:1.2;
+      font-size:30px;
+      line-height:1.18;
       margin-bottom:12px;
     }
 
@@ -270,26 +279,26 @@
     .quick-item strong{
       display:block;
       color:var(--gold);
-      margin-bottom:3px;
+      margin-bottom:4px;
       font-size:14px;
     }
 
     section{
-      padding:84px 0;
+      padding:88px 0;
     }
 
     .section-head{
-      margin-bottom:34px;
+      margin-bottom:36px;
     }
 
     .section-head h2{
-      font-size:clamp(28px, 5vw, 44px);
+      font-size:clamp(30px, 5vw, 46px);
       margin-bottom:12px;
     }
 
     .section-head p{
-      color:var(--muted);
       max-width:780px;
+      color:var(--muted);
       font-size:17px;
     }
 
@@ -299,63 +308,29 @@
       gap:20px;
     }
 
-    .menu-box{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .reviews{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:20px;
-    }
-
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:0.95fr 1.05fr;
-      gap:24px;
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.16);
-    }
-
-    .card h3{
-      font-size:23px;
-      margin-bottom:12px;
-    }
-
-    .card p{
-      color:var(--muted);
-    }
-
     .feature{
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.16);
     }
 
     .feature-icon{
-      width:50px;
-      height:50px;
+      width:54px;
+      height:54px;
+      border-radius:16px;
       display:flex;
       align-items:center;
       justify-content:center;
-      border-radius:14px;
-      background:rgba(216,180,106,0.12);
+      background:rgba(215,180,106,0.12);
       color:var(--gold);
-      font-size:22px;
+      font-size:24px;
       margin-bottom:14px;
     }
 
-    .feature h4{
-      font-size:20px;
+    .feature h3{
+      font-size:21px;
       margin-bottom:10px;
     }
 
@@ -364,36 +339,34 @@
       font-size:15px;
     }
 
-    .gallery{
+    .split{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:18px;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
     }
 
-    .gallery-item{
-      min-height:250px;
-      border-radius:24px;
+    .card{
+      background:var(--card);
       border:1px solid var(--line);
-      overflow:hidden;
-      position:relative;
-      background:
-        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.48)),
-        linear-gradient(135deg, #51402a 0%, #2d2218 40%, #17181a 100%);
-      display:flex;
-      align-items:flex-end;
-      padding:22px;
+      border-radius:var(--radius-lg);
+      padding:28px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.16);
     }
 
-    .gallery-item strong{
-      font-size:21px;
-      max-width:230px;
-      line-height:1.25;
+    .card h3{
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:var(--muted);
     }
 
     .menu-list{
       list-style:none;
       display:grid;
-      gap:12px;
+      gap:13px;
+      margin-top:6px;
     }
 
     .menu-list li{
@@ -410,17 +383,49 @@
       font-weight:700;
     }
 
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .gallery-item{
+      min-height:280px;
+      border-radius:26px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      padding:22px;
+      background:
+        linear-gradient(rgba(0,0,0,0.16), rgba(0,0,0,0.52)),
+        linear-gradient(135deg, #5a4327 0%, #2a2017 40%, #16181c 100%);
+    }
+
+    .gallery-item strong{
+      max-width:240px;
+      font-size:22px;
+      line-height:1.25;
+    }
+
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+    }
+
     .review{
       background:var(--card-2);
       border:1px solid var(--line);
-      border-radius:22px;
+      border-radius:24px;
       padding:24px;
     }
 
     .stars{
       color:var(--gold);
-      margin-bottom:12px;
       letter-spacing:2px;
+      margin-bottom:12px;
     }
 
     .review p{
@@ -433,25 +438,32 @@
     }
 
     .cta-band{
-      background:linear-gradient(135deg, rgba(216,180,106,0.14), rgba(255,255,255,0.03));
+      background:linear-gradient(135deg, rgba(215,180,106,0.14), rgba(255,255,255,0.03));
       border:1px solid var(--line);
-      border-radius:28px;
-      padding:34px;
+      border-radius:30px;
+      padding:36px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:20px;
       flex-wrap:wrap;
+      box-shadow:var(--shadow);
     }
 
     .cta-band h3{
-      font-size:31px;
+      font-size:32px;
       margin-bottom:8px;
     }
 
     .cta-band p{
       color:var(--muted);
       max-width:700px;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:24px;
     }
 
     .contact-list{
@@ -477,15 +489,15 @@
     .map-box iframe{
       width:100%;
       height:100%;
-      min-height:380px;
+      min-height:400px;
       border:0;
-      border-radius:24px;
+      border-radius:26px;
     }
 
-    footer{
+    .footer{
       padding:26px 0 96px;
       border-top:1px solid var(--line);
-      color:#b6aa96;
+      color:#b5aa98;
       font-size:14px;
     }
 
@@ -541,9 +553,13 @@
     }
 
     @media (max-width: 980px){
+      .hero{
+        min-height:auto;
+      }
+
       .hero-grid,
       .grid-3,
-      .menu-box,
+      .split,
       .gallery,
       .reviews,
       .contact-wrap{
@@ -567,14 +583,14 @@
 
     @media (max-width: 640px){
       .hero{
-        padding-top:64px;
+        padding-top:18px;
       }
 
       h1{
-        font-size:42px;
+        font-size:44px;
       }
 
-      .hero p.lead{
+      .lead{
         font-size:17px;
       }
 
@@ -591,7 +607,7 @@
         display:none;
       }
 
-      footer{
+      .footer{
         padding-bottom:92px;
       }
     }
@@ -602,17 +618,17 @@
   <div class="topbar">
     <div class="container nav">
       <div class="brand">
-        <small>Restoran GRAD</small>
+        <small>Premium restoran • GRAD</small>
         <strong>NAZIV_RESTORANA</strong>
       </div>
 
       <nav class="nav-links">
         <a href="#o-nama">O nama</a>
-        <a href="#ponuda">Ponuda</a>
         <a href="#iskustvo">Doživljaj</a>
+        <a href="#specijaliteti">Istaknuto</a>
         <a href="#recenzije">Recenzije</a>
         <a href="#kontakt">Kontakt</a>
-        <a class="nav-cta" href="tel:BROJ_TELEFONA">Nazovi odmah</a>
+        <a class="nav-cta" href="tel:BROJ_TELEFONA">Rezerviraj</a>
       </nav>
     </div>
   </div>
@@ -620,37 +636,35 @@
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Domaći okusi • Ugodan ambijent • GRAD</span>
+        <span class="eyebrow">Premium atmosfera • Izvrsna hrana • GRAD</span>
         <h1>Rezervirajte stol u restoranu NAZIV_RESTORANA</h1>
         <p class="lead">
-          Uživajte u spoju dobre hrane, ugodne atmosfere i mjesta na koje se gosti rado vraćaju.
-          Idealno za ručak, večeru, druženje i posebne prilike u gradu GRAD.
+          Mjesto gdje se vrhunski doživljaj, ugodan ambijent i odličan prvi dojam spajaju u iskustvo kojem se gosti žele vraćati.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="tel:BROJ_TELEFONA">📞 Nazovi i rezerviraj</a>
-          <a class="btn btn-secondary" href="#kontakt">Pošalji upit</a>
+          <a class="btn btn-secondary" href="#kontakt">Kontakt i upit</a>
           <a class="btn btn-secondary" href="#kako-do-nas">Kako do nas</a>
         </div>
 
         <div class="hero-badges">
-          <span class="badge">Rezervacije telefonom</span>
-          <span class="badge">Topla atmosfera</span>
-          <span class="badge">Odličan prvi dojam</span>
+          <span class="badge">Rezervacije jednim klikom</span>
+          <span class="badge">Premium dojam</span>
+          <span class="badge">Optimizirano za mobitel</span>
         </div>
       </div>
 
       <div class="hero-card">
-        <div class="label">Mjesto za goste koji žele više</div>
-        <h3>Hrana, atmosfera i doživljaj koji ostaju u sjećanju.</h3>
+        <div class="label">Prvi dojam koji prodaje</div>
+        <h3>Stranica koja ne izgleda samo lijepo — nego potiče goste da rezerviraju.</h3>
         <p>
-          NAZIV_RESTORANA u gradu GRAD predstavlja idealno mjesto za goste koji žele ugodan ambijent,
-          jednostavnu rezervaciju i iskustvo kojem se žele vratiti.
+          Ovaj demo je napravljen da restoran izgleda ozbiljno, moderno i vrijedno povjerenja već u prvih nekoliko sekundi.
         </p>
 
         <div class="quick-info">
           <div class="quick-item">
-            <strong>Telefon</strong>
+            <strong>Telefon za rezervacije</strong>
             <a href="tel:BROJ_TELEFONA">BROJ_TELEFONA</a>
           </div>
 
@@ -660,8 +674,8 @@
           </div>
 
           <div class="quick-item">
-            <strong>Rezervacije</strong>
-            Brzo i jednostavno pozivom
+            <strong>Idealno za</strong>
+            Ručak, večeru, druženje i posebne prilike
           </div>
         </div>
       </div>
@@ -671,69 +685,35 @@
   <section id="o-nama">
     <div class="container">
       <div class="section-head">
-        <h2>Zašto odabrati NAZIV_RESTORANA</h2>
+        <h2>Zašto ovaj tip stranice radi</h2>
         <p>
-          Moderna web stranica restorana treba jasno pokazati atmosferu, olakšati kontakt i potaknuti gosta
-          da rezervira stol. Ovaj demo je napravljen upravo s tim ciljem.
+          Dobar restoran web ne treba biti kompliciran. Treba pokazati atmosferu, ostaviti premium dojam i gostu olakšati da odmah nazove i rezervira stol.
         </p>
       </div>
 
       <div class="grid-3">
         <div class="feature">
-          <div class="feature-icon">🍽️</div>
-          <h4>Ugodna atmosfera</h4>
-          <p>
-            Prostor koji ostavlja topao i elegantan dojam i poziva goste da se vraćaju ponovno.
-          </p>
-        </div>
-
-        <div class="feature">
           <div class="feature-icon">✨</div>
-          <h4>Dobar prvi dojam</h4>
+          <h3>Premium izgled</h3>
           <p>
-            Profesionalna online prisutnost povećava povjerenje i pomaže restoranu da izgleda ozbiljnije.
+            Tamna elegantna estetika s naglaskom na atmosferu odmah podiže dojam restorana i gradi povjerenje.
           </p>
         </div>
 
         <div class="feature">
           <div class="feature-icon">📞</div>
-          <h4>Brza rezervacija</h4>
+          <h3>Brza rezervacija</h3>
           <p>
-            Posjetitelj odmah vidi broj telefona i može nazvati jednim klikom, posebno važno na mobitelu.
+            Broj telefona je uvijek vidljiv, a poziv je moguć jednim klikom, posebno važno za mobilne korisnike.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="ponuda">
-    <div class="container">
-      <div class="section-head">
-        <h2>Kako ova stranica pomaže restoranu</h2>
-        <p>
-          Cilj ove demo stranice nije samo da izgleda lijepo, nego da pretvori pregledavanje u stvarne pozive i rezervacije.
-        </p>
-      </div>
-
-      <div class="menu-box">
-        <div class="card">
-          <h3>Što gost želi vidjeti</h3>
-          <ul class="menu-list">
-            <li><strong>Naziv restorana</strong><span>Jasno istaknut</span></li>
-            <li><strong>Telefon</strong><span>Vidljiv odmah</span></li>
-            <li><strong>Atmosferu</strong><span>Povjerenje i dojam</span></li>
-            <li><strong>Kontakt</strong><span>Brz i jednostavan</span></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Što restoran dobiva</h3>
-          <ul class="menu-list">
-            <li><strong>Više poziva</strong><span>Jasan CTA na vrhu</span></li>
-            <li><strong>Veće povjerenje</strong><span>Moderan dizajn</span></li>
-            <li><strong>Bolju prisutnost</strong><span>Profesionalan nastup</span></li>
-            <li><strong>Lakši kontakt</strong><span>Jedan klik do rezervacije</span></li>
-          </ul>
+        <div class="feature">
+          <div class="feature-icon">🍷</div>
+          <h3>Doživljaj prije dolaska</h3>
+          <p>
+            Gost već online dobiva osjećaj kakvo ga iskustvo čeka, što povećava šansu da baš vas odabere.
+          </p>
         </div>
       </div>
     </div>
@@ -742,23 +722,56 @@
   <section id="iskustvo">
     <div class="container">
       <div class="section-head">
-        <h2>Doživljaj restorana</h2>
+        <h2>Doživljaj koji ostaje u sjećanju</h2>
         <p>
-          Ovi blokovi služe kao premium placeholderi dok se ne ubace stvarne fotografije interijera, hrane i atmosfere restorana.
+          Ovi vizualni blokovi služe kao premium placeholderi. Kad se ubace stvarne fotografije interijera i hrane, stranica izgleda još jače.
         </p>
       </div>
 
       <div class="gallery">
         <div class="gallery-item">
-          <strong>Ambijent za opušten ručak i večeru</strong>
+          <strong>Atmosfera za večeru, druženje i posebne trenutke</strong>
         </div>
 
         <div class="gallery-item">
-          <strong>Mjesto za druženje i posebne prilike</strong>
+          <strong>Mjesto gdje se hrana, ambijent i dojam spajaju</strong>
         </div>
 
         <div class="gallery-item">
-          <strong>Iskustvo kojem se gosti žele vratiti</strong>
+          <strong>Restoran kojem se gosti vraćaju zbog iskustva</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specijaliteti">
+    <div class="container">
+      <div class="section-head">
+        <h2>Što gost želi vidjeti na stranici</h2>
+        <p>
+          Vlasniku restorana ova sekcija pokazuje da stranica nije samo ukras, nego alat koji vodi prema pozivu i rezervaciji.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <h3>Istaknuto na naslovnici</h3>
+          <ul class="menu-list">
+            <li><strong>Naziv restorana</strong><span>Jasan i upečatljiv</span></li>
+            <li><strong>Kontakt</strong><span>Vidljiv odmah</span></li>
+            <li><strong>Ambijent</strong><span>Vizualni premium dojam</span></li>
+            <li><strong>Poziv na akciju</strong><span>Rezervacija bez traženja</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Koristi za restoran</h3>
+          <ul class="menu-list">
+            <li><strong>Više poziva</strong><span>CTA na vrhu i dnu stranice</span></li>
+            <li><strong>Više povjerenja</strong><span>Moderan i ozbiljan izgled</span></li>
+            <li><strong>Bolji dojam</strong><span>Restoran djeluje profesionalnije</span></li>
+            <li><strong>Jednostavniji kontakt</strong><span>Gost ne mora ništa tražiti</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -769,7 +782,7 @@
       <div class="section-head">
         <h2>Što gosti žele pročitati</h2>
         <p>
-          Ovdje kasnije mogu doći stvarne recenzije, ali i ovakav demo vlasniku odmah pokazuje kako bi stranica mogla izgledati profesionalno.
+          Recenzije su jedan od najjačih elemenata povjerenja. U demo verziji služe da vlasnik odmah vidi kako profesionalno može izgledati prava stranica.
         </p>
       </div>
 
@@ -777,7 +790,7 @@
         <div class="review">
           <div class="stars">★★★★★</div>
           <p>
-            “Ugodna atmosfera i mjesto na koje se rado vraćamo.”
+            “Odličan ambijent, ugodna atmosfera i mjesto na koje se rado vraćamo.”
           </p>
           <strong>Gost restorana</strong>
         </div>
@@ -785,7 +798,7 @@
         <div class="review">
           <div class="stars">★★★★★</div>
           <p>
-            “Odličan izbor za ručak, večeru i opušteno druženje.”
+            “Vrlo lijep dojam i savršeno mjesto za večeru i opušteno druženje.”
           </p>
           <strong>Gost restorana</strong>
         </div>
@@ -793,7 +806,7 @@
         <div class="review">
           <div class="stars">★★★★★</div>
           <p>
-            “Jednostavno, moderno i ostavlja dobar prvi dojam.”
+            “Moderan izgled, jednostavna rezervacija i osjećaj kvalitete već na prvi pogled.”
           </p>
           <strong>Gost restorana</strong>
         </div>
@@ -807,7 +820,7 @@
         <div>
           <h3>Rezervirajte svoj stol danas</h3>
           <p>
-            Stranica je napravljena da gost u par sekundi vidi tko ste, kako izgleda iskustvo i kako vas može odmah kontaktirati.
+            Ova stranica je dizajnirana tako da gost odmah vidi tko ste, kakav doživljaj nudite i kako vas može kontaktirati bez dodatnog traženja.
           </p>
         </div>
         <a class="btn btn-primary" href="tel:BROJ_TELEFONA">Nazovi odmah</a>
@@ -820,7 +833,7 @@
       <div class="section-head">
         <h2>Kontakt i rezervacije</h2>
         <p>
-          Što je kontakt jednostavniji, veća je šansa da će posjetitelj stvarno nazvati i rezervirati stol.
+          Što je proces rezervacije jednostavniji, veća je vjerojatnost da će posjetitelj stvarno postati gost.
         </p>
       </div>
 
@@ -830,7 +843,7 @@
 
           <div class="contact-list">
             <div class="contact-item">
-              <strong>Telefon za rezervacije</strong>
+              <strong>Telefon</strong>
               <a href="tel:BROJ_TELEFONA">BROJ_TELEFONA</a>
             </div>
 
@@ -841,7 +854,7 @@
 
             <div class="contact-item">
               <strong>Rezervacije</strong>
-              Pozivom ili upitom
+              Telefonski upit i dogovor
             </div>
           </div>
         </div>
@@ -858,7 +871,7 @@
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container footer-wrap">
       <span>© <span id="year"></span> NAZIV_RESTORANA</span>
       <span>Demo web stranica izrađena za prezentaciju restorana</span>
